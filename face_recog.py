@@ -47,7 +47,6 @@ while True:
                 name = max(counts, key=counts.get)
             names.append(name)
             print(name)
-
     for (centroid, name) in zip(objects.values(), names):
         y = centroid[1] + 15
         x = centroid[0] - 15
@@ -58,6 +57,7 @@ while True:
         break
     end = time.time()
     print(fps_counter / (end-start))
-
+    with open("names.pkl", "wb") as f:
+        pickle.dump(names, f)
 cv2.destroyAllWindows()
 vs.stop()
